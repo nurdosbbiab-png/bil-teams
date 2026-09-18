@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>БІЛІМ-ИННОВАЦИЯ ЛИЦЕЙІ — Генератор Сбалансированных Команд</title>
+    <title>АҚТӨБЕ БІЛІМ-ИННОВАЦИЯ ЛИЦЕЙІ — Генератор Команд</title>
+    
     <style>
         :root {
-            /* Базовые цвета бренда БИЛ */
             --bil-gold: #facc15;
             --bil-gold-hover: #fde047;
             --bil-blue: #0284c7;
@@ -15,22 +15,20 @@
             --transition-speed: 0.3s;
         }
 
-        /* 1. ТЁМНО-СИНИЙ ФОН (ПО УМОЛЧАНИЮ) */
+        /* 1. ТЁМНО-СИНИЙ ФОН */
         [data-theme="blue"] {
-            --bg-page: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
-            --bg-page-attachment: fixed;
-            --container-bg: rgba(15, 23, 42, 0.92);
+            --bg-page: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #0b132b 100%);
+            --container-bg: rgba(15, 23, 42, 0.95);
             --card-bg: rgba(30, 41, 59, 0.85);
             --card-border: rgba(250, 204, 21, 0.3);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --input-bg: rgba(15, 23, 42, 0.85);
-            --input-border: rgba(250, 204, 21, 0.3);
+            --input-border: rgba(250, 204, 21, 0.35);
             --input-text: #ffffff;
             --row-bg: rgba(30, 41, 59, 0.6);
             --row-hover: rgba(30, 41, 59, 0.9);
             --header-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
-            --backdrop: blur(12px);
             --badge-bg: rgba(2, 132, 199, 0.3);
             --badge-text: #38bdf8;
         }
@@ -38,7 +36,6 @@
         /* 2. БЕЛЫЙ ФОН */
         [data-theme="white"] {
             --bg-page: #f1f5f9;
-            --bg-page-attachment: scroll;
             --container-bg: #ffffff;
             --card-bg: #f8fafc;
             --card-border: #cbd5e1;
@@ -50,30 +47,8 @@
             --row-bg: #f1f5f9;
             --row-hover: #e2e8f0;
             --header-shadow: none;
-            --backdrop: none;
             --badge-bg: #e0f2fe;
             --badge-text: #0369a1;
-        }
-
-        /* 3. ФОН С ФОТО БИЛ */
-        [data-theme="photo"] {
-            --bg-page: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.9)), 
-                        url('bil-bg.jpg') no-repeat center center fixed;
-            --bg-page-attachment: fixed;
-            --container-bg: rgba(15, 23, 42, 0.75);
-            --card-bg: rgba(30, 41, 59, 0.75);
-            --card-border: rgba(250, 204, 21, 0.4);
-            --text-main: #ffffff;
-            --text-muted: #cbd5e1;
-            --input-bg: rgba(15, 23, 42, 0.85);
-            --input-border: rgba(250, 204, 21, 0.35);
-            --input-text: #ffffff;
-            --row-bg: rgba(30, 41, 59, 0.5);
-            --row-hover: rgba(30, 41, 59, 0.85);
-            --header-shadow: 0 0 25px rgba(250, 204, 21, 0.5);
-            --backdrop: blur(16px);
-            --badge-bg: rgba(2, 132, 199, 0.4);
-            --badge-text: #7dd3fc;
         }
 
         * {
@@ -83,8 +58,7 @@
 
         body {
             background: var(--bg-page);
-            background-size: cover;
-            background-attachment: var(--bg-page-attachment);
+            background-attachment: fixed;
             min-height: 100vh;
             margin: 0;
             padding: 25px 15px;
@@ -97,11 +71,9 @@
 
         .container {
             background: var(--container-bg);
-            backdrop-filter: var(--backdrop);
-            -webkit-backdrop-filter: var(--backdrop);
             padding: 35px;
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             max-width: 1050px;
             width: 100%;
             border: 1px solid var(--card-border);
@@ -130,7 +102,7 @@
             background: transparent;
             border: none;
             color: var(--text-muted);
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 8px;
             font-size: 13px;
             font-weight: 700;
@@ -154,11 +126,11 @@
 
         .logo-title {
             margin: 0 0 6px 0;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 900;
             color: var(--bil-gold);
             text-shadow: var(--header-shadow);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
@@ -388,7 +360,7 @@
             border-radius: 16px;
             padding: 24px;
             margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .variant-header {
@@ -575,20 +547,17 @@
         </div>
         <div class="theme-switcher">
             <button class="theme-btn active" onclick="setTheme('blue')" id="btn-theme-blue">
-                🔵 Тёмно-синий
+                🔵 Тёмно-синяя
             </button>
             <button class="theme-btn" onclick="setTheme('white')" id="btn-theme-white">
-                ⚪ Белый
-            </button>
-            <button class="theme-btn" onclick="setTheme('photo')" id="btn-theme-photo">
-                🖼️ Фото БИЛ
+                ⚪ Белая
             </button>
         </div>
     </div>
 
     <div class="header">
-        <h1 class="logo-title">БІЛІМ-ИННОВАЦИЯ ЛИЦЕЙІ</h1>
-        <p class="subtitle">Генератор сбалансированных команд (Футбол + ИМТ)</p>
+        <h1 class="logo-title">АҚТӨБЕ БІЛІМ-ИННОВАЦИЯ ЛИЦЕЙІ</h1>
+        <p class="subtitle">Генератор сбалансированных команд по футболу и ИМТ</p>
     </div>
 
     <div class="section-title">
@@ -605,7 +574,7 @@
     </div>
 
     <div id="studentsList" class="students-list">
-        <!-- Динамические строки учеников -->
+        <!-- Dynamic student rows -->
     </div>
 
     <div class="toolbar-btns">
@@ -640,7 +609,7 @@
 </div>
 
 <script>
-    // Переключение тем
+    // Theme Switcher
     function setTheme(themeName) {
         document.documentElement.setAttribute('data-theme', themeName);
         document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
@@ -858,7 +827,7 @@
 
         const candidatesMap = new Map();
 
-        // Optimization search loop
+        // 500 Optimization Runs
         for (let attempt = 0; attempt < 500; attempt++) {
             let shuffled = shuffle(players);
             let teams = Array.from({ length: teamsCount }, (_, i) => ({
